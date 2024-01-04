@@ -15,23 +15,26 @@ public class Zzirasi : MonoBehaviour
     {
         ClickNum = 0;
         FameNum = 0;
-        clickTxt.text = "0";
-        fameTxt.text = "0";
+        clickTxt.text = "클릭 수 : 0";
+        fameTxt.text = "명성 : 0";
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    
-    }
+
 
     public void Click()
     {
         ClickNum++;
-        clickTxt.text = ClickNum.ToString();
+        clickTxt.text ="클릭 수 :"+ ClickNum.ToString();
         Debug.Log("ClickNum: " + ClickNum);
+
         FameNum = ClickNum / 10; // FameNum을 Click 함수에서 갱신합니다.
-        fameTxt.text = FameNum.ToString();
+        fameTxt.text = "명성 : "+FameNum.ToString();
         Debug.Log("FameNum: " + FameNum);
+
+    }
+    void Update()
+    {
+      PlayerPrefs.SetInt("Fame",FameNum);
     }
 }
